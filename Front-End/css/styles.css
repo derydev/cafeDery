@@ -613,7 +613,7 @@ td:last-child {
   .nav-links.open {
     display:flex
   }
-
+/* Nova parte */
   .nav-links a.active:after {
     display:none
   }
