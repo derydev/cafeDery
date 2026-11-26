@@ -57,3 +57,46 @@ if (loginForm) {
     loginMessage.classList.add("show");
   });
 }
+
+
+// Parte da Conexão com o PHP funcional com backend
+
+function criarGuardar(){
+
+   let primeiro_nome = document.getElementById("primeiro-nome").value;
+   let ultimo_nome = document.getElementById("ultimo-nome").value;
+   let telefone = document.getElementById("telefone").value;
+   let criar_email = document.getElementById("criar-email").value;
+   let generos = document.getElementById("generos").checked;
+   let morada = document.getElementById("morada").value;
+   let username = document.getElementById("username").value;
+   let password = document.getElementById("criar-password").value;
+   let confirm_password = document.getElementById("confirm-password").value;
+
+  ajax({
+     url: "../php/criar-conta.php",
+     type: "POST",
+     dataType:"json",
+     data:{
+        primeiro_nome: primeiro_nome,
+        ultimo_nome: ultimo_nome,
+        telefone: telefone,
+        criar_email: criar_email,
+        generos: generos,
+        morada: morada,
+        username: username,
+        password: password,
+        confirm_password: confirm_password,
+        op:1
+     },
+     success: function(resposta){
+      alert(resposta);
+     },
+     error:function(){
+      alert("Erro no pedido");
+     }
+  })
+
+
+}
+
